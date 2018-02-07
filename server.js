@@ -43,6 +43,18 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/home", (req, res) => {
+  res.render("urls/landing-page");
+});
+
+app.get("/menu", (req, res) => {
+  res.render("urls/landing-page");
+});
+
+app.get("/order", (req, res) => {
+  res.render("urls/landing-page");
+});
+
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
