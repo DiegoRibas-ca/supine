@@ -23,10 +23,10 @@ exports.seed = function(knex, Promise) {
       // console.log('Creating the Table Items')
       restaurants = data
       return Promise.all([
-        knex('table_items').insert({ item: 'Hamburguer', description: '2 meats and 1 slice of cheese', price: 8, restaurant_id: data[0][0] }).returning('id'),
-        knex('table_items').insert({ item: 'Sushi', description: '6 pieces of salmon', price: 8, restaurant_id: data[0][0]  }).returning('id'),
-        knex('table_items').insert({ item: 'coke', description: '600 ml of soft drink', price: 2, restaurant_id: data[0][0]  }).returning('id'),
-        knex('table_items').insert({ item: 'juice', description: '500 of orange juice', price: 3, restaurant_id: data[0][0]  }).returning('id'),
+        knex('table_items').insert({ item: 'Hamburguer', description: 'Double cheese and patties', price: 12, restaurant_id: data[0][0] }).returning('id'),
+        knex('table_items').insert({ item: 'Sushi', description: '6 piece spicy salmon', price: 11, restaurant_id: data[0][0]  }).returning('id'),
+        knex('table_items').insert({ item: 'Coke', description: '600 ml', price: 2, restaurant_id: data[0][0]  }).returning('id'),
+        knex('table_items').insert({ item: 'Orange Juice', description: '500 ml', price: 3, restaurant_id: data[0][0]  }).returning('id'),
       ])
     })
     .then(data => {
