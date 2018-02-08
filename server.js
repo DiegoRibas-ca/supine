@@ -17,7 +17,12 @@ const knexLogger  = require('knex-logger');
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
 
-// const secrets = require('./secrets');
+const secrets = require('./secrets');
+const accountSid = 'AC12b2a9688196e05e1e204fb2f0a0eaab'; // Your Account SID from www.twilio.com/console
+const authToken = secrets.TWILIO_TOKEN;   // Your Auth Token from www.twilio.com/console
+
+const twilio = require('twilio');
+const client = new twilio(accountSid, authToken);
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -57,7 +62,7 @@ app.get("/menu", (req, res) => {
 
 app.post("/order", (req, res) => {
 
-  //REQUEST THE BODY 
+  //REQUEST THE BODY
   // body {
   //   Hamburger: '2',
   //     Sushi: '3',
@@ -69,39 +74,55 @@ app.post("/order", (req, res) => {
   // console.log("body", req.body)
   let body = req.body;
 
-
   //MAKE PROMISES AND INSERT TABLES
-  
+
   // function insertTablesOrder(knex) {
     // Deletes ALL existing entries\
-    let order;
-    let items;
+  let order;
+    // let items;
     // console.log(body.user_name);
     // console.log(body.Hamburger);
     // return Promise.all([
           // Inserts seed entries
-      knex('table_order').insert({ user_name: body.user_name, user_phone: body.user_phone }).returning('id')
+  knex('table_order').insert({ user_name: body.user_name, user_phone: body.user_phone }).returning('id')
       // ])
-        .then(data => {
-          order = data[0];
-          console.log(order)
-          return Promise.all([
-            knex('items_order').insert({ order_id: order, item_id: 79, quantity: body.Hamburger }),
-            knex('items_order').insert({ order_id: order, item_id: 80, quantity: body.Sushi }),
-            knex('items_order').insert({ order_id: order, item_id: 81, quantity: body.Coke }),
-            knex('items_order').insert({ order_id: order, item_id: 82, quantity: body.Orange_Juice })
-        
-        ]);
+    .then(data => {
+      order = data[0];
+      return Promise.all([
+        knex('items_order').insert({ order_id: order, item_id: 1, quantity: body.Hamburger }),
+        knex('items_order').insert({ order_id: order, item_id: 2, quantity: body.Sushi }),
+        knex('items_order').insert({ order_id: order, item_id: 3, quantity: body.Coke }),
+        knex('items_order').insert({ order_id: order, item_id: 4, quantity: body.Orange_Juice }),
+
+        ]).then(data => {
+
+        client.messages.create({
+        body:`-
+        New Order
+        From ${body.user_name};
+        Order Id: ${order},
+        Hamburgers: ${body.Hamburger},
+        Sushi: ${body.Sushi},
+        Coke: ${body.Coke},
+        Orange Juice: ${body.Orange_Juice}
+        end of order`,
+        to: `+1${body.user_phone}`,  // Text this number
+        from: '+12892174594', // From a valid Twilio number
+        })
+        .then((message) =>
+          console.log(message.sid));
       })
   // };
-  res.status(200).send("Nicely DONE!!!!");
 
+  })
 
+          res.status(200).send("Your Order Has Been Sucessfully Placed");
   //MAKE PROMISES AND INSERT TABLES
 
   // res.render("urls/order-page", templateVars);
 
 });
+
 
 // app.get("/order", (req, res) => {
 //   res.render("urls/order-page");
