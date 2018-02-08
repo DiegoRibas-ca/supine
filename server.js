@@ -66,35 +66,35 @@ app.post("/order", (req, res) => {
   //           user_name: 'fdsjkdlwadfjks',
   //           user_phone: '2132343421'
   //         }
-  console.log("body", req.body)
+  // console.log("body", req.body)
   let body = req.body;
 
 
   //MAKE PROMISES AND INSERT TABLES
   
-  function insertTablesOrder(knex, Promise) {
+  // function insertTablesOrder(knex) {
     // Deletes ALL existing entries\
     let order;
-    let restaurants;
     let items;
-    return Promise.all([
+    // console.log(body.user_name);
+    // console.log(body.Hamburger);
+    // return Promise.all([
           // Inserts seed entries
-      knex('table_order').insert({ user_name: body.user_name, user_phone: body.user_phone }).returning('id'),
-      ])
+      knex('table_order').insert({ user_name: body.user_name, user_phone: body.user_phone }).returning('id')
+      // ])
         .then(data => {
-          console.log(items)
-          order = data;
+          order = data[0];
+          console.log(order)
           return Promise.all([
-            knex('items_order').insert({ order_id: order[0][0], item_id: 79, quantity: parseInt(body.Hambuger) }),
-            knex('items_order').insert({ order_id: order[0][0], item_id: 80, quantity: parseInt(body.Sushi) }),
-            knex('items_order').insert({ order_id: order[0][0], item_id: 81, quantity: parseInt(body.Coke) }),
-            knex('items_order').insert({ order_id: order[0][0], item_id: 82, quantity: parseInt(body.Orange_Juice) }),
-        ])
-      });
-  };
-
-
-
+            knex('items_order').insert({ order_id: order, item_id: 79, quantity: body.Hamburger }),
+            knex('items_order').insert({ order_id: order, item_id: 80, quantity: body.Sushi }),
+            knex('items_order').insert({ order_id: order, item_id: 81, quantity: body.Coke }),
+            knex('items_order').insert({ order_id: order, item_id: 82, quantity: body.Orange_Juice })
+        
+        ]);
+      })
+  // };
+  res.status(200).send("Nicely DONE!!!!");
 
 
   //MAKE PROMISES AND INSERT TABLES
