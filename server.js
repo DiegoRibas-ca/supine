@@ -48,11 +48,11 @@ app.get("/home", (req, res) => {
 });
 
 app.get("/menu", (req, res) => {
-  res.render("urls/landing-page");
+  res.render("urls/menu-page");
 });
 
 app.get("/order", (req, res) => {
-  res.render("urls/landing-page");
+  res.render("urls/order-page");
 });
 
 app.listen(PORT, () => {
