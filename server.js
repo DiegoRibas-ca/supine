@@ -42,10 +42,6 @@ app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
-  res.render("index");
-});
-
-app.get("/home", (req, res) => {
   res.render("urls/landing-page");
 });
 
@@ -53,9 +49,16 @@ app.get("/menu", (req, res) => {
   res.render("urls/menu-page");
 });
 
-app.get("/order", (req, res) => {
-  res.render("urls/order-page");
+app.post("/order", (req, res) => {
+  // let templateVars = req.body
+  //body { Hamburger: '2', Sushi: '3', Coke: '6', 'Orange Juice': '2' }
+  console.log("body", req.body)
+  // res.render("urls/order-page", templateVars);
 });
+
+// app.get("/order", (req, res) => {
+//   res.render("urls/order-page");
+// });
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
