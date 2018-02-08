@@ -1,7 +1,34 @@
-body {
-  background-color: #EEE;
-
-  h1 {
-    color: #244751;
+html {
+    box-sizing: border-box;
   }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+.main-header {
+    text-align: center;
+    background-color: grey;
+    color: grey;
+    padding: 5%;
+    background-image: url("/images/portuga.jpg")
 }
+
+.container {
+    text-align: center;
+    background-color: black;
+    color: grey;
+    padding-bottom: 30%;
+}
+
+.second-header {
+    padding-top: 2%
+}
+
+.menu-header {
+}
+
+.navbar-header {
+    background-color: grey;
+    padding-bottom: 1%;
+}
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Information -->
+    <title>Supine - Food Ordering App</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <!-- External JS -->
+
+
+    <!-- App JS -->
+
+
+  </head>
+
+  <body>
+
+    <!-- Top nav bar (fixed) -->
+    <header>
+      <% include ../partials/_header %>
+      <h1 class="menu-header">Mezzanine - Menu</h1>
+    </header>
+
+    <!-- Page-specific (main) content here -->
+    <main class="">
+      <section class="menu-container">
+        <form method="POST" action="/order" style="margin:20px;">
+            <p>Chicken - $12</p>
+            <input name="number" placeholder="0" style="width: 30px">
+            <p>Steak - $30</p>
+            <input name="number" placeholder="0" style="width: 30px">
+            <p>Club Sandwich - $12</p>
+            <input name="number" placeholder="0" style="width: 30px">
+            <p>Spring rolls - $8</p>
+            <input name="number" placeholder="0" style="width: 30px">
+            <p>Brownie - $5</p>
+            <input name="number" placeholder="0" style="width: 30px">
+            <p>Beer (Domestic) - $6</p>
+            <input name="number" placeholder="0" style="width: 30px">
+            <input type="submit" value="Place Order">
+            <div><a href"/order">Go to checkout</a></div>
+      </section>
+  </body>
+</html>
