@@ -74,6 +74,8 @@ app.post("/order", (req, res) => {
   // console.log("body", req.body)
   let body = req.body;
 
+  console.log(body)
+
   //MAKE PROMISES AND INSERT TABLES
 
   // function insertTablesOrder(knex) {
@@ -89,10 +91,10 @@ app.post("/order", (req, res) => {
     .then(data => {
       order = data[0];
       return Promise.all([
-        knex('items_order').insert({ order_id: order, item_id: 1, quantity: body.Hamburger }),
-        knex('items_order').insert({ order_id: order, item_id: 2, quantity: body.Sushi }),
-        knex('items_order').insert({ order_id: order, item_id: 3, quantity: body.Coke }),
-        knex('items_order').insert({ order_id: order, item_id: 4, quantity: body.Orange_Juice }),
+        knex('items_order').insert({ order_id: order, item_id: 79, quantity: body.Hamburger }),
+        knex('items_order').insert({ order_id: order, item_id: 80, quantity: body.Sushi }),
+        knex('items_order').insert({ order_id: order, item_id: 81, quantity: body.Coke }),
+        knex('items_order').insert({ order_id: order, item_id: 82, quantity: body.Orange_Juice }),
 
     ]).then(data => {
       client.messages.create({
@@ -113,7 +115,15 @@ app.post("/order", (req, res) => {
       })
   })
 
-  res.status(200).send("Your Order Has Been Sucessfully Placed");
+  res.status(200).send(`-
+          New Order
+          From ${body.user_name};
+          Hamburgers: ${body.Hamburger},
+          Sushi: ${body.Sushi},
+          Coke: ${body.Coke},
+          Orange Juice: ${body.Orange_Juice}
+          
+          YOUR ORDER WILL BE TRACKED BY SMS FROM NOW`);
 
   // res.render("urls/order-page", templateVars);
 
