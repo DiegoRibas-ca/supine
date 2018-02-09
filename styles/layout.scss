@@ -56,6 +56,10 @@ html {
     background-color: slategray;
 }
 
+.restaurant-button:hover input {
+    opacity: 0.5;
+}
+
 .menu-page {
     background-color: black;
 }
@@ -67,30 +71,54 @@ html {
 
 .menu-header {
     background: url("/images/food-spread.jpg");
-    background-position: 10%;
+    background-position: 65%;
     padding: 7%;
 }
 .menu-header-text {
     margin-left: 35%;
-    font-size: 2em;
+    font-size: 3em;
+    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
-.item1 {
+#item1 {
     margin-left: 0.3%
 }
 
-.item2 {
-    margin-left: 5.5%;
+.item1-2 {
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
-.item3 {
-    margin-left: 7.1%;
+#item2 {
+    margin-left: 6%;
 }
 
-.item4 {
+#item3 {
+    margin-left: 7.7%;
+}
+
+#item4 {
     margin-right: 1%;
 }
 
 .name-form {
-    margin-right: 10%;
+    margin-right: 100%;
+}
+
+.number-form {
+    margin-right: 50%;
+}
+
+.place-order {
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+}
+
+.total-price {
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
 }
