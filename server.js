@@ -54,6 +54,9 @@ app.get("/menu", (req, res) => {
   res.render("urls/menu-page");
 });
 
+app.get("/restaurant", (req, res) => {
+  res.render("urls/restaurant");
+});
 
 // app.get("/order", (req, res) => {
 //   res.render("urls/landing-page");
@@ -73,6 +76,8 @@ app.post("/order", (req, res) => {
   //         }
   // console.log("body", req.body)
   let body = req.body;
+  console.log("body", body);
+  console.log("phone", body.user_phone);
 
   //MAKE PROMISES AND INSERT TABLES
 
@@ -118,6 +123,42 @@ app.post("/order", (req, res) => {
   // res.render("urls/order-page", templateVars);
 
 });
+
+
+
+// restaurant sends message to client
+app.post("/restaurant", (req, res) => {
+
+  let phone;
+  let body = req.body;
+  let orderid = body.formid;
+  console.log("body", body)
+
+  knex('table_order').where('id', orderid).returning('user_phone')
+
+   .then(data => {
+    phone = data[0].user_phone
+    console.log("phone", phone)
+      client.messages.create({
+        body:`-
+          ${body.restaurant} is working
+          on your order!
+          Estimated time is ${body.time}.
+          ${body.message}
+          `,
+        to: `+1${phone}`,  // Text this number
+        from: '+12892174594', // From a valid Twilio number
+      })
+      .then((message) =>
+        console.log(message.sid));
+      })
+  res.status(200)//.send("Confirmation has been sent to customer!");
+  })
+
+
+  // res.render("urls/order-page", templateVars);
+
+
 
 
 // app.get("/order", (req, res) => {
