@@ -29,3 +29,7 @@ $(() => {
 //   });
 
 // });
+  //MAKE PROMISES AND INSERT TABLES
+// $('.counter').text(140);
+// $(".container .new-tweet").toggle('show');
+// $('.new-tweet textarea').val('');

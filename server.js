@@ -94,30 +94,26 @@ app.post("/order", (req, res) => {
         knex('items_order').insert({ order_id: order, item_id: 3, quantity: body.Coke }),
         knex('items_order').insert({ order_id: order, item_id: 4, quantity: body.Orange_Juice }),
 
-        ]).then(data => {
-
-        client.messages.create({
+    ]).then(data => {
+      client.messages.create({
         body:`-
-        New Order
-        From ${body.user_name};
-        Order Id: ${order},
-        Hamburgers: ${body.Hamburger},
-        Sushi: ${body.Sushi},
-        Coke: ${body.Coke},
-        Orange Juice: ${body.Orange_Juice}
-        end of order`,
+          New Order
+          From ${body.user_name};
+          Order Id: ${order},
+          Hamburgers: ${body.Hamburger},
+          Sushi: ${body.Sushi},
+          Coke: ${body.Coke},
+          Orange Juice: ${body.Orange_Juice}
+          end of order`,
         to: `+1${body.user_phone}`,  // Text this number
         from: '+12892174594', // From a valid Twilio number
-        })
-        .then((message) =>
-          console.log(message.sid));
       })
-  // };
-
+      .then((message) =>
+        console.log(message.sid));
+      })
   })
 
-          res.status(200).send("Your Order Has Been Sucessfully Placed");
-  //MAKE PROMISES AND INSERT TABLES
+  res.status(200).send("Your Order Has Been Sucessfully Placed");
 
   // res.render("urls/order-page", templateVars);
 
