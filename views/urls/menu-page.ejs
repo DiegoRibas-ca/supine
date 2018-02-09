@@ -19,26 +19,25 @@
 
   </head>
 
-  <body>
+  <body class"menu-page">
 
     <!-- Top nav bar (fixed) -->
-    <header>
-      <% include ../partials/_header %>
-      <h1 class="menu-header">Mezzanine - Menu</h1>
+    <header class="menu-header">
+      <div class="menu-header-text">Mezzanine's - Menu</div>
     </header>
 
     <!-- Page-specific (main) content here -->
-    <main class="">
+    <main>
       <section class="menu-container">
-        <form id='orderButtom' method="POST" action="/order" style="margin:20px;">
-            <p>Hamburger - $12   <input name="Hamburger" placeholder="0" style="width: 30px"></p>
-            <p>Sushi - $11   <input name="Sushi" placeholder="0" style="width: 30px"></p>
-            <p>Coke - $2   <input name="Coke" placeholder="0" style="width: 30px"></p>
-            <p>Orange Juice - $3   <input name="Orange_Juice" placeholder="0" style="width: 30px"></p>
-            <p> NAME:   <input name="user_name" placeholder="0" style="width: 400px"></p>
-            <p> PHONE NUMBER:   <input name="user_phone" placeholder="0" style="width: 400px"></p>
+        <form id='orderButton' method="POST" action="/order" style="margin:20px;">
+            <p>Hamburger - $12   <input type="number" class= "item1" name="Hamburger" placeholder="0" style="width: 30px"></p>
+            <p>Sushi - $11   <input type="number" class= "item2" name="Sushi" placeholder="0" style="width: 30px"></p>
+            <p>Coke - $2   <input type="number" class= "item3" name="Coke" placeholder="0" style="width: 30px"></p>
+            <p>Orange Juice - $3   <input type="number" class= "item4" name="Orange_Juice" placeholder="0" style="width: 30px"></p>
+            <p>Name:   <input type="text" class= "name-form" name="user_name" placeholder="0" style="width: 400px"></p>
+            <p>Phone Number:   <input class= "number-form" name="user_phone" placeholder="0" style="width: 400px"></p>
             <section><input type="submit" value="Place Order"></section>
-
+            <div>Total Price $</div><span id="total-price">0</span>
             <div><a href"/order">Go to checkout</a></div>
           </form>
         </section>
