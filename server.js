@@ -66,40 +66,27 @@ app.get("/restaurant", (req, res) => {
 app.post("/order", (req, res) => {
 
   //REQUEST THE BODY
-  // body {
-  //   Hamburger: '2',
-  //     Sushi: '3',
-  //       Coke: '4',
-  //         'Orange Juice': '2',
-  //           user_name: 'fdsjkdlwadfjks',
-  //           user_phone: '2132343421'
-  //         }
-  // console.log("body", req.body)
-  let body = req.body;
-  console.log("body", body);
-  console.log("phone", body.user_phone);
 
-  console.log(body)
+  let body = req.body;
+  //console.log("body", body);
+  //console.log("phone", body.user_phone);
 
   //MAKE PROMISES AND INSERT TABLES
 
-  // function insertTablesOrder(knex) {
     // Deletes ALL existing entries\
   let order;
     // let items;
-    // console.log(body.user_name);
-    // console.log(body.Hamburger);
-    // return Promise.all([
+
           // Inserts seed entries
   knex('table_order').insert({ user_name: body.user_name, user_phone: body.user_phone }).returning('id')
       // ])
     .then(data => {
       order = data[0];
       return Promise.all([
-        knex('items_order').insert({ order_id: order, item_id: 79, quantity: body.Hamburger }),
-        knex('items_order').insert({ order_id: order, item_id: 80, quantity: body.Sushi }),
-        knex('items_order').insert({ order_id: order, item_id: 81, quantity: body.Coke }),
-        knex('items_order').insert({ order_id: order, item_id: 82, quantity: body.Orange_Juice }),
+        knex('items_order').insert({ order_id: order, item_id: 1, quantity: body.Hamburger }),
+        knex('items_order').insert({ order_id: order, item_id: 2, quantity: body.Sushi }),
+        knex('items_order').insert({ order_id: order, item_id: 3, quantity: body.Coke }),
+        knex('items_order').insert({ order_id: order, item_id: 4, quantity: body.Orange_Juice }),
 
     ]).then(data => {
       client.messages.create({
@@ -117,18 +104,20 @@ app.post("/order", (req, res) => {
       })
       .then((message) =>
         console.log(message.sid));
+        res.status(200).json({
+          // Thanks
+          name: body.user_name,
+          // your order has been sent.
+          Hamburgers: body.Hamburger,
+          Sushi: body.Sushi,
+          Cokes: body.Coke,
+          Orange_Juice: body.Orange_Juice,
+          Phone: body.user_phone
+          // you will soon receive a confirmation SMS from the restaurant
+        });
       })
   })
 
-  res.status(200).send(`-
-          New Order
-          From ${body.user_name};
-          Hamburgers: ${body.Hamburger},
-          Sushi: ${body.Sushi},
-          Coke: ${body.Coke},
-          Orange Juice: ${body.Orange_Juice}
-          
-          YOUR ORDER WILL BE TRACKED BY SMS FROM NOW`);
 
   // res.render("urls/order-page", templateVars);
 
@@ -142,7 +131,7 @@ app.post("/restaurant", (req, res) => {
   let phone;
   let body = req.body;
   let orderid = body.formid;
-  console.log("body", body)
+  //console.log("body", body)
 
   knex('table_order').where('id', orderid).returning('user_phone')
 
@@ -153,16 +142,19 @@ app.post("/restaurant", (req, res) => {
         body:`-
           ${body.restaurant} is working
           on your order!
-          Estimated time is ${body.time}.
+          Estimated time is
+          ${body.time} minutes.
+          ${body.restaurant}
+          says,
           ${body.message}
           `,
         to: `+1${phone}`,  // Text this number
         from: '+12892174594', // From a valid Twilio number
       })
       .then((message) =>
-        console.log(message.sid));
+        //console.log(message.sid));
+  res.status(200).send("Confirmation has been sent to customer!"));
       })
-  res.status(200)//.send("Confirmation has been sent to customer!");
   })
 
 
