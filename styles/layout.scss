@@ -5,7 +5,10 @@
     list-style: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-    
+
+body {
+    background-color: black;
+}
 
 html {
     box-sizing: border-box;
@@ -61,12 +64,17 @@ html {
 }
 
 .menu-page {
-    background-color: black;
+    background-color: grey;
 }
 
 .menu-container {
-    margin-top: 5%;
     margin-left: 40%;
+    color: lightgrey;
+}
+
+.main-menu {
+    background-image: url("/images/portuga.jpg");
+    margin: 0 10%;
 }
 
 .menu-header {
@@ -75,50 +83,79 @@ html {
     padding: 7%;
 }
 .menu-header-text {
-    margin-left: 35%;
+    margin-left: 39%;
     font-size: 3em;
-    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-    background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-    color:transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: white;
+    background-color: black;
+    width: 254px;
+    border-radius: 17px;
 }
 
 #item1 {
-    margin-left: 0.3%
+    border-radius: 17px;
+    width: 7%;
+    float: right;
+    margin-right: 491px;
 }
+
+@media (max-width: 600px){
+    #item1 {
+        margin-right: 100px; 
+    }
+ }
 
 .item1-2 {
     padding-top: 1%;
     padding-bottom: 1%;
+    border-radius: 17px;
 }
 
 #item2 {
-    margin-left: 6%;
+    border-radius: 17px;
+    width: 7%;
+    float: right;
+    margin-right: 491px;
 }
 
 #item3 {
-    margin-left: 7.7%;
+    border-radius: 17px;
+    width: 7%;
+    float: right;
+    margin-right: 491px;
 }
 
 #item4 {
-    margin-right: 1%;
+    border-radius: 17px;
+    width: 7%;
+    float: right;
+    margin-right: 491px;
 }
 
 .name-form {
     margin-right: 100%;
+    border-radius: 12px;
+    width: 50%;
 }
 
 .number-form {
     margin-right: 50%;
+    border-radius: 12px;
+    width: 50%;
 }
 
 .place-order {
     margin-top: 1.5%;
     margin-bottom: 1.5%;
+    padding: 0.5%;
+    border-radius: 17px;
 }
 
 .total-price {
     margin-top: 1.5%;
     margin-bottom: 1.5%;
+    padding-bottom: 2%;
+}
+
+.price-amount {
+    margin-left: 1%;
 }
