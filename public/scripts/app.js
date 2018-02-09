@@ -1,14 +1,25 @@
 //CALCULATE THE TOTAL PRICE WITH JQUERY
 function sucessOrder(data) {
-  console.log(data);
+  console.log("success data", data);
   $(".menu-container").toggle();
-  $('.order-response').append($("<p id='order-complete'></p>").text(data));
-  $('.order-response').append($("<button id='gobackhome'>Back to Home</button>").val('Back to Home'));
+  $('.order-response').append($(`
+  <div id='order-complete'>
+  <h3 style="margin: 30px"> Thanks ${data.name} for your order!</h3>
+  <h4 style="margin: 20px"> You will receive a confirmation text message to ${data.Phone}</h4>
+  <p style="margin: 10px"> Your order is </p>
+  <p style="margin: 10px"> ${data.Hamburgers} Hamburgers </p>
+  <p style="margin: 10px"> ${data.Sushi} Sushi </p>
+  <p style="margin: 10px"> ${data.Cokes} Cokes </p>
+  <p style="margin: 10px"> ${data.Orange_Juice} OJs </p>
+  </div>
+  `));
+  $('.order-response').append($("<button id='gobackhome'>Back Home</button>"));
   $("#gobackhome").click(function () {
     window.location.replace("http://localhost:8080/");
   });
-
+  
 }
+
 let totalPrice = 0;
 let priceHamb = 12;
 let priceSushi = 11;
@@ -16,9 +27,9 @@ let priceCoke = 2;
 let priceJuice = 3;
 
 $(document).ready(function () {
-
+  
   $(".item-list").val(0);
-
+  
   $('#orderButton').on('submit', function (event) {
     event.preventDefault();
     let body = $(this).serialize();
@@ -40,34 +51,6 @@ $(document).ready(function () {
     }
   })
 
-    console.log("serialize data", body)
-    $.ajax({
-      type: "POST",
-      url: '/order',
-      data: body,
-      success: sucessOrder
-    });
-
-  })
-
-
-  function sucessOrder(data) {
-    console.log("success data", data);
-    $(".menu-container").toggle();
-    $('.order-response').append($(`
-      <h3 style="margin: 30px"> Thanks ${data.name} for your order!</h3>
-      <h4 style="margin: 20px"> You will receive a confirmation text message to ${data.Phone}</h4>
-      <p style="margin: 10px"> Your order is </p>
-      <p id='order-complete' style="margin: 10px"> ${data.Hamburgers} Hamburgers </p>
-      <p style="margin: 10px"> ${data.Sushi} Sushi </p>
-      <p style="margin: 10px"> ${data.Cokes} Cokes </p>
-      <p style="margin: 10px"> ${data.Orange_Juice} OJs </p>
-      `));
-
-
-    $('.order-response').append($("<button id='#gobackhome'>Back to Home</button>").val('Back to Home'));
-
-  }
 
 
   $(".item-list").click(function() {

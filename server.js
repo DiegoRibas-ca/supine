@@ -83,10 +83,10 @@ app.post("/order", (req, res) => {
     .then(data => {
       order = data[0];
       return Promise.all([
-        knex('items_order').insert({ order_id: order, item_id: 1, quantity: body.Hamburger }),
-        knex('items_order').insert({ order_id: order, item_id: 2, quantity: body.Sushi }),
-        knex('items_order').insert({ order_id: order, item_id: 3, quantity: body.Coke }),
-        knex('items_order').insert({ order_id: order, item_id: 4, quantity: body.Orange_Juice }),
+        knex('items_order').insert({ order_id: order, item_id: 79, quantity: body.Hamburger }),
+        knex('items_order').insert({ order_id: order, item_id: 80, quantity: body.Sushi }),
+        knex('items_order').insert({ order_id: order, item_id: 81, quantity: body.Coke }),
+        knex('items_order').insert({ order_id: order, item_id: 82, quantity: body.Orange_Juice }),
 
     ]).then(data => {
       client.messages.create({
