@@ -6,7 +6,7 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -30,15 +30,14 @@
     <main>
       <section class="menu-container">
         <form id='orderButton' method="POST" action="/order" style="margin:20px;">
-            <p class="item1-2">Hamburger - $12   <input class="item-list" type="number" id= "item1" name="Hamburger" placeholder="0" style="width: 30px"></p>
-            <p class="item1-2">Sushi - $11   <input class="item-list" type="number" id= "item2" name="Sushi" placeholder="0" style="width: 30px"></p>
-            <p class="item1-2" >Coke - $2   <input class="item-list" type="number" id= "item3" name="Coke" placeholder="0" style="width: 30px"></p>
-            <p class="item1-2">Orange Juice - $3   <input class="item-list" type="number" id= "item4" name="Orange_Juice" placeholder="0" style="width: 30px"></p>
-            <p class="item1-2">Name:   <input type="text" class= "name-form" id="user_name" placeholder="0" style="width: 400px"></p>
-            <p class="item1-2">Phone Number:   <input class= "number-form" id="user_phone" placeholder="0" style="width: 400px"></p>
+            <p class="item1-2">Hamburger - $12   <input class="item-list" type="number" min="0" id= "item1" name="Hamburger" placeholder="0" style="width: 30px"></p>
+            <p class="item1-2">Sushi - $11   <input class="item-list" type="number" min="0" id= "item2" name="Sushi" placeholder="0" style="width: 30px"></p>
+            <p class="item1-2" >Coke - $2   <input class="item-list" type="number"  min="0" id= "item3" name="Coke" placeholder="0" style="width: 30px"></p>
+            <p class="item1-2">Orange Juice - $3   <input class="item-list" type="number" min="0" id= "item4" name="Orange_Juice" placeholder="0" style="width: 30px"></p>
+            <p class="item1-2">Name:   <input type="text" class= "name-form" id="user_name" placeholder="Name" style="width: 400px"></p>
+            <p class="item1-2">Phone Number:   <input class= "number-form" id="user_phone" placeholder="+1-555-5555" style="width: 400px"></p>
             <section><input class="place-order" type="submit" value="Place Order"></section>
             <div class="total-price">Total Price $</div><span id="total-price" name="total-price">0</span>
-    
           </form>
         </section>
       </main>
