@@ -24,6 +24,8 @@ const authToken = secrets.TWILIO_TOKEN;   // Your Auth Token from www.twilio.com
 const twilio = require('twilio');
 const client = new twilio(accountSid, authToken);
 
+
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -65,13 +67,7 @@ app.get("/restaurant", (req, res) => {
 
 app.post("/order", (req, res) => {
 
-  //REQUEST THE BODY
-
   let body = req.body;
-  //console.log("body", body);
-  //console.log("phone", body.user_phone);
-
-  //MAKE PROMISES AND INSERT TABLES
 
     // Deletes ALL existing entries\
   let order;
@@ -83,10 +79,10 @@ app.post("/order", (req, res) => {
     .then(data => {
       order = data[0];
       return Promise.all([
-        knex('items_order').insert({ order_id: order, item_id: 79, quantity: body.Hamburger }),
-        knex('items_order').insert({ order_id: order, item_id: 80, quantity: body.Sushi }),
-        knex('items_order').insert({ order_id: order, item_id: 81, quantity: body.Coke }),
-        knex('items_order').insert({ order_id: order, item_id: 82, quantity: body.Orange_Juice }),
+        knex('items_order').insert({ order_id: order, item_id: 1, quantity: body.Hamburger }),
+        knex('items_order').insert({ order_id: order, item_id: 2, quantity: body.Sushi }),
+        knex('items_order').insert({ order_id: order, item_id: 3, quantity: body.Coke }),
+        knex('items_order').insert({ order_id: order, item_id: 4, quantity: body.Orange_Juice }),
 
     ]).then(data => {
       client.messages.create({
@@ -105,19 +101,20 @@ app.post("/order", (req, res) => {
       .then((message) =>
         console.log(message.sid));
         res.status(200).json({
-          // Thanks
           name: body.user_name,
-          // your order has been sent.
           Hamburgers: body.Hamburger,
           Sushi: body.Sushi,
           Cokes: body.Coke,
           Orange_Juice: body.Orange_Juice,
-          Phone: body.user_phone
-          // you will soon receive a confirmation SMS from the restaurant
+          Phone: body.user_phone,
+          Total: body.total_price
         });
       })
   })
-
+//  75 .main-menu {
+//     background-image: url("/images/portuga.jpg");
+//     margin: 0 10%;
+// }
 
   // res.render("urls/order-page", templateVars);
 
@@ -160,7 +157,37 @@ app.post("/restaurant", (req, res) => {
 
   // res.render("urls/order-page", templateVars);
 
+app.get("/payment", (req, res) => {
+  console.log("paymeny req", req.body)
+  res.render("urls/payment");
+});
 
+
+
+app.post("/payment", (req, res) => {
+console.log("Pay", req.body);
+// Set your secret key: remember to change this to your live secret key in production
+// See your keys here: https://dashboard.stripe.com/account/apikeys
+const stripe = require("stripe")("sk_test_bRuMVEUiHWq55yX3W7DUkZJo");
+  // Token is created using Checkout or Elements!
+  // Get the payment token ID submitted by the form:
+  const token = req.body.stripeToken; // Using Express
+
+  // Charge the user's card:
+  stripe.charges.create({
+      amount: 999,
+      currency: "cad",
+      description: "Example charge",
+      source: token,
+     }, function(err, charge) {
+      // asynchronously called
+      res.redirect("/");
+      res.send()
+   });
+
+
+
+});
 
 
 // app.get("/order", (req, res) => {

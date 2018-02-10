@@ -6,15 +6,14 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <!-- External JS -->
-    <!-- <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script> -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 
-    <!-- App JS -->
 
 
   </head>
@@ -30,18 +29,19 @@
     <main class="container">
       <section class="restaurants">
         <h2 class= "second-header">Restaurants</h2>
-          <div><form class="restaurant-button"action="/menu">
-                <input type="submit" value="Mezzanine - An upscale restaurant with home cooking" />
-                </form>
-                <form class="restaurant-button"action="/">
-                <input type="submit" value="Jimmy's Burger Stand - Burgers, Burgers, and Burgers" />
-                </form>
-                <form class="restaurant-button"action="/">
-                <input type="submit" value="Taste of Italy - Fine Italian Dining in a cozy setting " />
-                </form>
-                <form class="restaurant-button"action="/">
-                <input type="submit" value="Sushi Time - Japan brought to your door, authentic" />
-                </form>
+          <div>
+            <button onclick="window.location='/menu'" type="submit" class="btn btn-secondary btn-lg"/>    
+            Mezzanine - An upscale restaurant with home cooking
+            </button>
+            <button onclick="window.location='/'" type="submit" class="btn btn-secondary btn-lg"/>    
+            Jimmy's Burger Stand - Burgers, Burgers, and Burgers
+            </button>
+            <button onclick="window.location='/'" type="submit" class="btn btn-secondary btn-lg"/>    
+            Taste of Italy - Fine Italian Dining in a cozy setting
+            </button>
+            <button onclick="window.location='/'" type="submit" class="btn btn-secondary btn-lg"/>    
+            Sushi Time - Japan brought to your door, authentic
+            </button>
           </div>
       </section>
 

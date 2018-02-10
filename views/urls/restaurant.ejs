@@ -21,16 +21,15 @@
 
   </head>
 
-  <body class"restaurant-page">
+  <body class="restaurant-page">
 
     <!-- Top nav bar (fixed) -->
-    <header class="menu-header">
+    <header>
     </header>
 
     <!-- Page-specific (main) content here -->
-    <main>
+    <main class="main-restaurant">
             <h1> Welcome to the order confirmation page</h1>
-
       <section>
         <form id="orderConfrimFrom" method="POST" action="/restaurant" style="margin:20px;">
             <div> Order Id
@@ -42,17 +41,15 @@
             <div> Time Estimate
               <input type="number" name="time" placeholder="15" style="width: 60px"> Minutes
             </div>
-            <div> Message to customer   </div>
+            <div class"message-text">Message to customer</div>
             <div>
-              <input type="text" name="message" placeholder="whats the scoop?!" style="width: 300px; height: 150px;">
+              <input class="restaurant-message" type="text" name="message" placeholder="whats the scoop?!">
             </div>
-
             <section>
-              <input type="submit" value="Send Confirmation" style="margin: 30px">
+              <input class="confirm-button" type="submit" value="Send Confirmation">
             </section>
-
           </form>
         </section>
       </main>
-  </body>
+    </body>
 </html>
