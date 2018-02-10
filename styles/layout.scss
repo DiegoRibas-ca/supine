@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: black;
+    // background-color: black;
 }
 
 html {
@@ -73,29 +73,59 @@ html {
 }
 
 .main-menu {
-    background-image: url("/images/portuga.jpg");
-    margin: 0 10%;
+    // background-image: url("/images/portuga.jpg");
+    margin: 0 25%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.4em;
+    font-weight: bold;
+    padding-top: 350px;
+
+
 }
 
 .menu-header {
     background: url("/images/food-spread.jpg");
-    background-position: 65%;
-    padding: 7%;
+    background-position: 30%;
+    padding: 120px;
+    position: fixed;
+    height: 40%;
+    width: 100%;
+    margin-top: 0;
 }
 .menu-header-text {
     margin-left: 39%;
-    font-size: 3em;
-    color: white;
-    background-color: black;
-    width: 254px;
+
+
+    background: rgb(0, 0, 0);
+    width: 20%;
+    border-radius: 17px;
+    margin-top: -4%;
+
+}
+//
+.menu-header-text h1 {
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+    color: rgb(245, 247, 244);
+    font-size: 5em;
+    padding-top: 2%;
+
+}
+
+.form-group {
+    border-color: black;
+    border-width: 10px;
+    background: white;
+    color: black;
     border-radius: 17px;
 }
 
 #item1 {
     border-radius: 17px;
-    width: 7%;
+    width: 8%;
     float: right;
-    margin-right: 491px;
+    margin-right: 270px;
 }
 
 @media (max-width: 600px){
@@ -112,27 +142,27 @@ html {
 
 #item2 {
     border-radius: 17px;
-    width: 7%;
+    width: 8%;
     float: right;
-    margin-right: 491px;
+    margin-right: 270px;
 }
 
 #item3 {
     border-radius: 17px;
-    width: 7%;
+    width: 8%;
     float: right;
-    margin-right: 491px;
+    margin-right: 270px;
 }
 
 #item4 {
     border-radius: 17px;
-    width: 7%;
+    width: 8%;
     float: right;
-    margin-right: 491px;
+    margin-right: 270px;
 }
 
 .name-form {
-    margin-right: 100%;
+    margin-right: 50%;
     border-radius: 12px;
     width: 50%;
 }
@@ -155,6 +185,14 @@ html {
     margin-bottom: 1.5%;
 }
 
+.total-price input#total-price {
+    text-align: right;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    padding-right: 5%;
+}
+
+
 .order-response {
     padding-left: 19%;
     padding-top: 8%;
@@ -173,4 +211,12 @@ html {
 
 .price-amount {
     margin-left: 1%;
+}
+
+#total-price {
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    margin-left: 1.5%;
+    padding: 0.5%;
+    border-radius: 17px;
 }
