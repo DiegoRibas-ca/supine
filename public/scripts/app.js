@@ -1,6 +1,6 @@
 //CALCULATE THE TOTAL PRICE WITH JQUERY
 function sucessOrder(data) {
-  console.log("success data", data);
+  console.log("price data", data);
   $(".menu-container").toggle();
   $('.order-response').append($(`
   <div id='order-complete'>
@@ -11,13 +11,28 @@ function sucessOrder(data) {
   <p style="margin: 10px"> ${data.Sushi} Sushi </p>
   <p style="margin: 10px"> ${data.Cokes} Cokes </p>
   <p style="margin: 10px"> ${data.Orange_Juice} OJs </p>
+  <p style="margin: 10px"> Order Total ${data.Total} </p>
+
   </div>
+   <form action="/payment" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_Gn7A7t8oWM48sDDpAlzeAfhY"
+        data-amount=${(data.Total) * 100}
+        data-name="Supine Order Pickup"
+        data-description="Mezzanine Restaurant"
+        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+        data-locale="auto"
+        data-currency="cad">
+     </script>
+    </form>
+
   `));
   $('.order-response').append($("<button id='gobackhome'>Back Home</button>"));
   $("#gobackhome").click(function () {
     window.location.replace("http://localhost:8080/");
   });
-  
+
 }
 
 let totalPrice = 0;
@@ -27,9 +42,9 @@ let priceCoke = 2;
 let priceJuice = 3;
 
 $(document).ready(function () {
-  
+
   $(".item-list").val(0);
-  
+
   $('#orderButton').on('submit', function (event) {
     event.preventDefault();
     let body = $(this).serialize();
