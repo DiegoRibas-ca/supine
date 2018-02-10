@@ -36,7 +36,8 @@ function sucessOrder(data) {
 }
 
 let totalPrice = 0;
-let priceHamb = 12;
+let priceHamb = Math.round((12*1.13) * 100)/100;
+console.log(priceHamb);
 let priceSushi = 11;
 let priceCoke = 2;
 let priceJuice = 3;
