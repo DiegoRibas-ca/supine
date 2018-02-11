@@ -12,6 +12,8 @@ function sucessOrder(data) {
   <p style="margin: 10px"> ${data.Cokes} Cokes </p>
   <p style="margin: 10px"> ${data.Orange_Juice} OJs </p>
   <p style="margin: 10px"> Order Total ${data.Total} </p>
+  <p style="margin: 10px"> Pay with card below or pay at pickup!</p>
+
 
   </div>
    <form action="/payment" method="POST">
@@ -37,10 +39,9 @@ function sucessOrder(data) {
 
 let totalPrice = 0;
 let priceHamb = Math.round((12*1.13) * 100)/100;
-console.log(priceHamb);
-let priceSushi = 11;
-let priceCoke = 2;
-let priceJuice = 3;
+let priceSushi = Math.round((11*1.13) * 100)/100;
+let priceCoke = Math.round((3*1.13) * 100)/100;
+let priceJuice = Math.round((2*1.13) * 100)/100;
 
 $(document).ready(function () {
 
