@@ -60,11 +60,7 @@ app.get("/restaurant", (req, res) => {
   res.render("urls/restaurant");
 });
 
-// app.get("/order", (req, res) => {
-//   res.render("urls/landing-page");
-// });
-
-
+// POST request to /order
 app.post("/order", (req, res) => {
 
   let body = req.body;
@@ -72,22 +68,27 @@ app.post("/order", (req, res) => {
     // Deletes ALL existing entries\
   let order;
 
+
+// find item id numbers using knex
   let hamburgerID = knex('table_items').select('id').where({item: 'Hamburguer'});
   let sushiID = knex('table_items').select('id').where('item', 'Sushi');
   let cokeID = knex('table_items').select('id').where('item', 'Coke');
   let orJuiceID = knex('table_items').select('id').where('item', 'Orange Juice');
 
+// insert this new order into table_order requiring the user name and user phone
   knex('table_order').insert({ user_name: body.user_name, user_phone: body.user_phone }).returning('id')
-      // ])
+      //return the table_order id
     .then(data => {
       order = data[0];
       return Promise.all([
+        //insert order items into items_order table using returned id from above
         knex('items_order').insert({ order_id: order, item_id: hamburgerID, quantity: body.Hamburger }),
         knex('items_order').insert({ order_id: order, item_id: sushiID, quantity: body.Sushi }),
         knex('items_order').insert({ order_id: order, item_id: cokeID, quantity: body.Coke }),
         knex('items_order').insert({ order_id: order, item_id: orJuiceID, quantity: body.Orange_Juice }),
 
     ]).then(data => {
+      // build the SMS message that will be sent to the restaurant
       client.messages.create({
         body:`-
           New Order
@@ -102,7 +103,9 @@ app.post("/order", (req, res) => {
         from: '+12892174594', // From a valid Twilio number
       })
       .then((message) =>
-        console.log(message.sid));
+        // retun 200 status and send with it the json of the order details to render
+        //the order confirmation page
+        console.log(message.sid));  // lets you see a confirmation of sent SMS
         res.status(200).json({
           name: body.user_name,
           Hamburgers: body.Hamburger,
@@ -114,12 +117,6 @@ app.post("/order", (req, res) => {
         });
       })
   })
-//  75 .main-menu {
-//     background-image: url("/images/portuga.jpg");
-//     margin: 0 10%;
-// }
-
-  // res.render("urls/order-page", templateVars);
 
 });
 
@@ -131,13 +128,14 @@ app.post("/restaurant", (req, res) => {
   let phone;
   let body = req.body;
   let orderid = body.formid;
-  //console.log("body", body)
 
+// find the client phone number from database table_order using the order id
   knex('table_order').where('id', orderid).returning('user_phone')
 
    .then(data => {
+    // create message to client
     phone = data[0].user_phone
-    console.log("phone", phone)
+    //console.log("phone", phone)
       client.messages.create({
       body:`-
       ${body.restaurant}
@@ -153,13 +151,11 @@ app.post("/restaurant", (req, res) => {
         from: '+12892174594', // From a valid Twilio number
       })
       .then((message) =>
-        //console.log(message.sid));
+        console.log(message.sid)); // log to confirm message has been sent
   res.status(200).send("Confirmation has been sent to customer!"));
       })
   })
 
-
-  // res.render("urls/order-page", templateVars);
 
 app.get("/payment", (req, res) => {
   console.log("paymeny req", req.body)
@@ -167,7 +163,7 @@ app.get("/payment", (req, res) => {
 });
 
 
-
+// Customer payment POST
 app.post("/payment", (req, res) => {
 console.log("Pay", req.body);
 // Set your secret key: remember to change this to your live secret key in production
@@ -193,10 +189,6 @@ const stripe = require("stripe")("sk_test_bRuMVEUiHWq55yX3W7DUkZJo");
 
 });
 
-
-// app.get("/order", (req, res) => {
-//   res.render("urls/order-page");
-// });
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
