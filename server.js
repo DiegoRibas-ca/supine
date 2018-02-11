@@ -71,7 +71,7 @@ app.post("/order", (req, res) => {
 
     // Deletes ALL existing entries\
   let order;
- 
+
   let hamburgerID = knex('table_items').select('id').where({item: 'Hamburguer'});
   let sushiID = knex('table_items').select('id').where('item', 'Sushi');
   let cokeID = knex('table_items').select('id').where('item', 'Coke');
@@ -139,14 +139,15 @@ app.post("/restaurant", (req, res) => {
     phone = data[0].user_phone
     console.log("phone", phone)
       client.messages.create({
-        body:`-
-          ${body.restaurant} is working
-          on your order!
-          Estimated time is
-          ${body.time} minutes.
-          ${body.restaurant}
-          says,
-          ${body.message}
+      body:`-
+      ${body.restaurant}
+       is working
+       on your order!
+       Estimated time is
+       ${body.time} minutes.
+       ${body.restaurant}
+       says,
+       ${body.message}
           `,
         to: `+1${phone}`,  // Text this number
         from: '+12892174594', // From a valid Twilio number

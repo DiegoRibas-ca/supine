@@ -24,14 +24,14 @@ html {
     color: #edcf2a;
     padding: 17%;
     background: url("/images/food-spread.jpg");
-    background-position: 50%;
+    background-position: 60%;
     font-size: 10em;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 .main-header .main-header-text {
 
-    color: white;
+    color: #ffffff;
     -webkit-background-clip: text;
     background-clip: text;
 }
@@ -46,7 +46,7 @@ html {
 .second-header {
     padding-top: 2%;
     font-family: 'Roboto Condensed', sans-serif;
-    color: black;
+    color: #827c79;
 }
 
 .restaurant-button input{
@@ -81,7 +81,7 @@ html {
 
 .menu-header {
     background: url("/images/food-spread.jpg");
-    background-position: 30%;
+    background-position: 60%;
     padding: 120px;
     position: fixed;
     height: 20em;
@@ -89,9 +89,8 @@ html {
     margin-top: 0;
 }
 .menu-header-text {
-    margin-left: 37%;
-    background: rgb(0, 0, 0);
-    width: 30%;
+    margin: auto;
+    width: 40%;
     border-radius: 17px;
 }
 //
@@ -115,6 +114,7 @@ html {
     padding-left: 5%;
     font-family: 'Roboto Condensed', sans-serif;
     border-radius: 17px;
+    position: relative;
 }
 
 .form-group {
@@ -146,7 +146,7 @@ html {
 
 .item-2 {
     margin-left:15%;
-    
+
 }
 
 .item-list {
@@ -159,7 +159,7 @@ html {
 .item-3 {
     margin-top: 5%;
     margin-left:15%;
-    
+
 }
 .name-form {
     margin-right: 50%;
@@ -172,7 +172,7 @@ html {
     margin-right: 50%;
     border-radius: 12px;
     width: 40%;
-    
+
 }
 
 .place-order {
@@ -183,15 +183,20 @@ html {
     margin-left:35%;
     width:10em;
     height: 4em;
-    background: rgb(210, 241, 245);
-    border-color: darkgrey;
+    background: white;
+    border-color: #afa8af;
+}
+
+.place-order:hover {
+background-color: #b2edf5;
+
 }
 
 .total-price {
     margin-top: 1.5%;
     margin-bottom: 1.5%;
     margin-left:15%;
-    
+
 }
 
 .total-price input#total-price {
@@ -286,7 +291,7 @@ html {
     margin-left:38%;
     width:8em;
     border-radius: 17px;
-    
+
 
 }
 
@@ -295,3 +300,11 @@ html {
    background-color: #f2eef1;
    border-color: #b89f95;
 }
+
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #bbbec5;
+    border-color: #545b62;
+}
+
+

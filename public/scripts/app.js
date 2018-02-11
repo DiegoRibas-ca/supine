@@ -15,6 +15,8 @@ function sucessOrder(data) {
         <p style="margin: 10px"> ${data.Cokes} Cokes </p>
         <p style="margin: 10px"> ${data.Orange_Juice} OJs </p>
         <p style="margin: 10px"> Order Total ${data.Total} </p>
+        <p style="margin: 10px"> Pay with card below or pay at pickup! </p>
+
 
     </div>
     <form action="/payment" method="POST">
