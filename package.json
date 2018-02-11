@@ -22,6 +22,7 @@
     "node-sass-middleware": "^0.9.8",
     "pg": "^6.0.2",
     "sass": "^1.0.0-beta.5.2",
+    "stripe": "^5.4.0",
     "twilio": "^3.11.2"
   },
   "devDependencies": {

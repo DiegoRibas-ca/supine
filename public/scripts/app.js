@@ -1,6 +1,7 @@
 //CALCULATE THE TOTAL PRICE WITH JQUERY
 function sucessOrder(data) {
   console.log("price data", data);
+
   $("#menu-form").toggle();
   $('.main-menu').append($(`
   <section class="container" id="placeOrderScreen">
@@ -17,6 +18,7 @@ function sucessOrder(data) {
 
     </div>
     <form action="/payment" method="POST">
+
       <script
         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="pk_test_Gn7A7t8oWM48sDDpAlzeAfhY"
@@ -40,10 +42,10 @@ function sucessOrder(data) {
 }
 
 let totalPrice = 0;
-let priceHamb = 12;
-let priceSushi = 11;
-let priceCoke = 2;
-let priceJuice = 3;
+let priceHamb = Math.round((12*1.13) * 100)/100;
+let priceSushi = Math.round((11*1.13) * 100)/100;
+let priceCoke = Math.round((3*1.13) * 100)/100;
+let priceJuice = Math.round((2*1.13) * 100)/100;
 
 $(document).ready(function () {
 
