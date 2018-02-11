@@ -32,8 +32,8 @@
 
 ## Dependencies
 
-body-parser 1.15.x or above 
-dotenv 2.0.x or above
+- body-parser 1.15.x or above 
+- dotenv 2.0.x or above
 ejs 2.4.x or above 
 express 4.13.x or above 
 knex 1.14.x or above 
