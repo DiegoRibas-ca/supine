@@ -2,19 +2,21 @@
 function sucessOrder(data) {
   console.log("price data", data);
   $("#menu-form").toggle();
-  $('.order-response').append($(`
-  <div id='order-complete'>
-  <h3 style="margin: 30px"> Thanks ${data.name} for your order!</h3>
-  <h4 style="margin: 20px"> You will receive a confirmation text message to ${data.Phone}</h4>
-  <p style="margin: 10px"> Your order is </p>
-  <p style="margin: 10px"> ${data.Hamburgers} Hamburgers </p>
-  <p style="margin: 10px"> ${data.Sushi} Sushi </p>
-  <p style="margin: 10px"> ${data.Cokes} Cokes </p>
-  <p style="margin: 10px"> ${data.Orange_Juice} OJs </p>
-  <p style="margin: 10px"> Order Total ${data.Total} </p>
+  $('.main-menu').append($(`
+  <section class="container" id="placeOrderScreen">
+    <div class="order-response"></div>
+      <div id='order-complete'>
+        <h3 style="margin: 20px"> Thanks ${data.name} for your order!</h3>
+        <h4 style="margin: 20px"> You will receive a confirmation text message to ${data.Phone}</h4>
+        <p style="margin: 10px"> Your order is </p>
+        <p style="margin: 10px"> ${data.Hamburgers} Hamburgers </p>
+        <p style="margin: 10px"> ${data.Sushi} Sushi </p>
+        <p style="margin: 10px"> ${data.Cokes} Cokes </p>
+        <p style="margin: 10px"> ${data.Orange_Juice} OJs </p>
+        <p style="margin: 10px"> Order Total ${data.Total} </p>
 
-  </div>
-   <form action="/payment" method="POST">
+    </div>
+    <form action="/payment" method="POST">
       <script
         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="pk_test_Gn7A7t8oWM48sDDpAlzeAfhY"
@@ -26,9 +28,11 @@ function sucessOrder(data) {
         data-currency="cad">
      </script>
     </form>
+    <button id='gobackhome'>Back Home</button>
+  </section>
 
   `));
-  $('.order-response').append($("<button id='gobackhome'>Back Home</button>"));
+  // $('.order-response').append($(""));
   $("#gobackhome").click(function () {
     window.location.replace("http://localhost:8080/");
   });

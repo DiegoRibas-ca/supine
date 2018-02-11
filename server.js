@@ -71,18 +71,21 @@ app.post("/order", (req, res) => {
 
     // Deletes ALL existing entries\
   let order;
-    // let items;
+ 
+  let hamburgerID = knex('table_items').select('id').where({item: 'Hamburguer'});
+  let sushiID = knex('table_items').select('id').where('item', 'Sushi');
+  let cokeID = knex('table_items').select('id').where('item', 'Coke');
+  let orJuiceID = knex('table_items').select('id').where('item', 'Orange Juice');
 
-          // Inserts seed entries
   knex('table_order').insert({ user_name: body.user_name, user_phone: body.user_phone }).returning('id')
       // ])
     .then(data => {
       order = data[0];
       return Promise.all([
-        knex('items_order').insert({ order_id: order, item_id: 79, quantity: body.Hamburger }),
-        knex('items_order').insert({ order_id: order, item_id: 80, quantity: body.Sushi }),
-        knex('items_order').insert({ order_id: order, item_id: 81, quantity: body.Coke }),
-        knex('items_order').insert({ order_id: order, item_id: 82, quantity: body.Orange_Juice }),
+        knex('items_order').insert({ order_id: order, item_id: hamburgerID, quantity: body.Hamburger }),
+        knex('items_order').insert({ order_id: order, item_id: sushiID, quantity: body.Sushi }),
+        knex('items_order').insert({ order_id: order, item_id: cokeID, quantity: body.Coke }),
+        knex('items_order').insert({ order_id: order, item_id: orJuiceID, quantity: body.Orange_Juice }),
 
     ]).then(data => {
       client.messages.create({

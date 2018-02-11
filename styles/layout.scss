@@ -166,6 +166,7 @@ html {
     margin-right: 50%;
     border-radius: 12px;
     width: 70%;
+
 }
 
 .number-form {
@@ -208,14 +209,7 @@ html {
     font-size: 1.2em;
 }
 
-#gobackhome {
-    margin-left: 29%;
-    margin-top: 5%;
-    border-radius: 10%;
-    width: 5%;
-    font-family: 'Roboto Condensed', sans-serif;
-    padding-bottom: 2%;
-}
+
 
 .price-amount {
     margin-left: 1%;
@@ -264,3 +258,41 @@ html {
     font-size: 1.5em;
 }
 
+#placeOrderScreen {
+    text-align: left;
+    background-color: lightgrey;
+    color: black;
+    border-radius: 17px;
+    padding-top: 1%;
+}
+
+#placeOrderScreen h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+#gobackhome {
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    padding: 0.5%;
+    border-radius: 17px;
+    margin-left:38%;
+    width:8em;
+    height: 2em;
+    background: rgb(215, 220, 221);
+    border-color: darkgrey;
+}
+.stripe-button-el {
+
+    margin-left:38%;
+    width:8em;
+    border-radius: 17px;
+    
+
+}
+
+.btn-secondary {
+   color: #fff;
+   background-color: #f2eef1;
+   border-color: #b89f95;
+}
