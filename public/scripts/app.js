@@ -1,7 +1,7 @@
 //CALCULATE THE TOTAL PRICE WITH JQUERY
 function sucessOrder(data) {
   console.log("price data", data);
-  $(".menu-container").toggle();
+  $("#menu-form").toggle();
   $('.order-response').append($(`
   <div id='order-complete'>
   <h3 style="margin: 30px"> Thanks ${data.name} for your order!</h3>
