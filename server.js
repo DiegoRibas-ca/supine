@@ -152,7 +152,7 @@ app.post("/restaurant", (req, res) => {
       })
       .then((message) =>
         console.log(message.sid)); // log to confirm message has been sent
-  res.status(200).send("Confirmation has been sent to customer!"));
+  res.status(200).send("Confirmation has been sent to customer!");
       })
   })
 
