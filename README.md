@@ -30,8 +30,10 @@
          TWILIO_TOKEN: "f63f1d09db06433xxxxxxxxxxd25c189"
         };
 
-
 ## Dependencies
+
+body-parser 1.15.x or above 
+
     body-parser 1.15.x or above
     dotenv 2.0.x or above
     ejs 2.4.x or above
