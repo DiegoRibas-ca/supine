@@ -55,5 +55,5 @@
 !["Menu Page"  ](https://github.com/swiftsimon/supine/blob/master/docs/Supine-Menu.png?raw=true )
 !["Customer order confirmation"  ](https://github.com/swiftsimon/supine/blob/master/docs/Supine-Order.png?raw=true )
 !["Secure payment page"  ](https://github.com/swiftsimon/supine/blob/master/docs/Supine-pay.png?raw=true )
-![  ](  )
+!["Restaurant receives order SMS"  ](https://github.com/swiftsimon/supine/blob/master/docs/Supine-rest%20text.jpg?raw=true )
 ![  ](  )
