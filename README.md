@@ -33,19 +33,17 @@
 ## Dependencies
 
 body-parser 1.15.x or above 
-
-    body-parser 1.15.x or above
-    dotenv 2.0.x or above
-    ejs 2.4.x or above
-    express 4.13.x or above
-    knex 0.14.x or above
-    knex-logger 0.1.x or above
-    morgan 1.7.x or above
-    node-sass-middleware 0.9.x or above
-    pg 6.0.x or above
-    sass 1.0.0-beta.5.x or above
-    stripe 5.4.x or above
-    twilio 3.11.x or above
+dotenv 2.0.x or above
+ejs 2.4.x or above 
+express 4.13.x or above 
+knex 1.14.x or above 
+knex-logger 1.1.x or above 
+morgan 1.7.x or above 
+node-sass-middleware 0.9.x or above 
+pg 6.0.x or above 
+sass 1.0.0-beta.5.x or above 
+stripe 5.4.x or above 
+twilio 3.11.x or above 
 
 / DEV
 - Node 5.10.x or above
