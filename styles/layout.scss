@@ -68,13 +68,8 @@ html {
     background-color: grey;
 }
 
-.menu-container {
-    margin-left: 40%;
-    color: lightgrey;
-}
 
 .main-menu {
-    // background-image: url("/images/portuga.jpg");
     margin: 0 25%;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.4em;
@@ -89,19 +84,15 @@ html {
     background-position: 30%;
     padding: 120px;
     position: fixed;
-    height: 40%;
+    height: 20em;
     width: 100%;
     margin-top: 0;
 }
 .menu-header-text {
-    margin-left: 39%;
-
-
+    margin-left: 37%;
     background: rgb(0, 0, 0);
-    width: 20%;
+    width: 30%;
     border-radius: 17px;
-    margin-top: -4%;
-
 }
 //
 .menu-header-text h1 {
@@ -114,26 +105,38 @@ html {
 
 }
 
+.main-menu .container {
+    text-align: left;
+    background-color: lightgrey;
+    color: grey;
+    margin-top: 3%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    padding-left: 5%;
+    font-family: 'Roboto Condensed', sans-serif;
+    border-radius: 17px;
+}
+
 .form-group {
     border-color: black;
     border-width: 10px;
-    background: white;
     color: black;
     border-radius: 17px;
 }
 
-#item1 {
-    border-radius: 17px;
-    width: 8%;
-    float: right;
-    margin-right: 270px;
+#menu-text {
+    text-align: center;
+    padding-bottom: 1em;
+    font-weight: bold;
+
 }
+
 
 @media (max-width: 600px){
     #item1 {
         margin-right: 100px;
     }
- }
+}
 
 .item1-2 {
     padding-top: 1%;
@@ -141,37 +144,35 @@ html {
     border-radius: 17px;
 }
 
-#item2 {
-    border-radius: 17px;
-    width: 8%;
-    float: right;
-    margin-right: 270px;
+.item-2 {
+    margin-left:15%;
+    
 }
 
-#item3 {
+.item-list {
     border-radius: 17px;
-    width: 8%;
+    width: 9%;
     float: right;
-    margin-right: 270px;
+    margin-right: 30%;
 }
 
-#item4 {
-    border-radius: 17px;
-    width: 8%;
-    float: right;
-    margin-right: 270px;
+.item-3 {
+    margin-top: 5%;
+    margin-left:15%;
+    
 }
-
 .name-form {
     margin-right: 50%;
     border-radius: 12px;
-    width: 50%;
+    width: 70%;
+
 }
 
 .number-form {
     margin-right: 50%;
     border-radius: 12px;
-    width: 50%;
+    width: 40%;
+    
 }
 
 .place-order {
@@ -179,18 +180,24 @@ html {
     margin-bottom: 1.5%;
     padding: 0.5%;
     border-radius: 17px;
+    margin-left:35%;
+    width:10em;
+    height: 4em;
+    background: rgb(210, 241, 245);
+    border-color: darkgrey;
 }
 
 .total-price {
     margin-top: 1.5%;
     margin-bottom: 1.5%;
+    margin-left:15%;
+    
 }
 
 .total-price input#total-price {
     text-align: right;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
-    padding-right: 5%;
+    padding-right: 3%;
 }
 
 
@@ -201,14 +208,7 @@ html {
     font-size: 1.2em;
 }
 
-#gobackhome {
-    margin-left: 29%;
-    margin-top: 5%;
-    border-radius: 10%;
-    width: 5%;
-    font-family: 'Roboto Condensed', sans-serif;
-    padding-bottom: 2%;
-}
+
 
 .price-amount {
     margin-left: 1%;
@@ -257,3 +257,41 @@ html {
     font-size: 1.5em;
 }
 
+#placeOrderScreen {
+    text-align: left;
+    background-color: lightgrey;
+    color: black;
+    border-radius: 17px;
+    padding-top: 1%;
+}
+
+#placeOrderScreen h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+#gobackhome {
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    padding: 0.5%;
+    border-radius: 17px;
+    margin-left:38%;
+    width:8em;
+    height: 2em;
+    background: rgb(215, 220, 221);
+    border-color: darkgrey;
+}
+.stripe-button-el {
+
+    margin-left:38%;
+    width:8em;
+    border-radius: 17px;
+    
+
+}
+
+.btn-secondary {
+   color: #fff;
+   background-color: #f2eef1;
+   border-color: #b89f95;
+}
