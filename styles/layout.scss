@@ -74,7 +74,7 @@ html {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.4em;
     font-weight: bold;
-    padding-top: 350px;
+    padding-top: 35px;
 
 
 }
@@ -83,7 +83,7 @@ html {
     background: url("/images/food-spread.jpg");
     background-position: 60%;
     padding: 120px;
-    position: fixed;
+    position: fixed, absolute;
     height: 20em;
     width: 100%;
     margin-top: 0;

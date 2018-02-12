@@ -88,7 +88,7 @@ $(document).ready(function () {
     totalPrice += $("#item2").val() * priceSushi;
     totalPrice += $("#item3").val() * priceCoke;
     totalPrice += $("#item4").val() * priceJuice;
-    $('#total-price').val(totalPrice);
+    $('#total-price').val(Math.round(totalPrice * 100)/100);
   });
 
   $(".item-list").keyup(function () {
@@ -97,7 +97,7 @@ $(document).ready(function () {
     totalPrice += $("#item2").val() * priceSushi;
     totalPrice += $("#item3").val() * priceCoke;
     totalPrice += $("#item4").val() * priceJuice;
-    $('#total-price').val(totalPrice);
+    $('#total-price').val(Math.round(totalPrice * 100) / 100);
   });
 
 
