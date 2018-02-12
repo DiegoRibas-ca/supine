@@ -158,7 +158,7 @@ app.post("/restaurant", (req, res) => {
 
 
 app.get("/payment", (req, res) => {
-  console.log("paymeny req", req.body)
+  //console.log("payment req", req.body)
   res.render("urls/payment");
 });
 
